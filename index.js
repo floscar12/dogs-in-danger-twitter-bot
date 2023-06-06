@@ -167,13 +167,13 @@ const scrapeAndTweetRandomDogInDanger = async () => {
 }
 
 // Post a dog in danger every hour
-const cronTweetRandomDogInDanger = new CronJob("*/1 * * * *", async () => {
+const cronTweetRandomDogInDanger = new CronJob("0 * * * *", async () => {
     scrapeAndTweetRandomDogInDanger()
 });
 cronTweetRandomDogInDanger.start();
 
 // Post a dog memorial every 2 hours
-const cronTweetLatestMemorial = new CronJob("0 * * * *", async () => {
+const cronTweetLatestMemorial = new CronJob("0 */2 * * *", async () => {
     scrapeAndTweetLatestMemorial()
 });
 cronTweetLatestMemorial.start();
