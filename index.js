@@ -177,5 +177,3 @@ const cronTweetLatestMemorial = new CronJob("0 */2 * * *", async () => {
     scrapeAndTweetLatestMemorial()
 });
 cronTweetLatestMemorial.start();
-
-  scrapeAndTweetRandomDogInDanger()
