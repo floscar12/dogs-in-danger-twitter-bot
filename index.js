@@ -79,7 +79,7 @@ const scrapeAndTweetLatestMemorial = async () => {
         const imageBuffer = Buffer.from(imageResponse.data);
 
         // Save the image locally
-        await writeFileAsync("dog.jpg", imageBuffer);
+        await writeFileAsync("fallenDog.jpg", imageBuffer);
 
         // Extract the dog name and death date
         const dogName = memorialDiv.find("strong a").text()
@@ -96,7 +96,7 @@ const scrapeAndTweetLatestMemorial = async () => {
         const randomHeartEmoji = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
 
         // Tweet the information with the image
-        const mediaId = await twitterClient.v1.uploadMedia("./dog.jpg");
+        const mediaId = await twitterClient.v1.uploadMedia("./fallenDog.jpg");
         await twitterClient.v2.tweet({
             text: `🌹 Memorial 🌹\n${dogName} ${randomHeartEmoji}\n${deathDate} 🕊️\n #memorial #rememberme`,
             media: {
