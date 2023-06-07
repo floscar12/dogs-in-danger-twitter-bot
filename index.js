@@ -178,4 +178,3 @@ const cronTweetLatestMemorial = new CronJob("0 */2 * * *", async () => {
 });
 cronTweetLatestMemorial.start();
 
-scrapeAndTweetLatestMemorial();
