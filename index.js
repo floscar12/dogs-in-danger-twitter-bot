@@ -15,6 +15,12 @@ app.listen(port, () => {
     console.log(`Listening on port ${port}`)
 })
 
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+  console.log("GET REQUEST SUCCESS EVERY 5 MINUTES");
+})
+
+
 const { twitterClient } = require("./twitterClient.js");
 
 // Since there is only one way to fetch memorials, it grabs the latest one. If the latest one
@@ -181,7 +187,13 @@ cronTweetLatestMemorial.start();
 // Since I am using Render's free server hosting tier, server sleeps after 15 minutes, causing some of the tweets to not run when needed
 // Console logging to the server every 14 minutes to keep server alive
 const pingServer = () => {
-  console.log("printed every 5 mimutes")
+    axios.get("https://dogs-in-danger-twitter-bot.onrender.com/")
+        .then(response => {
+            console.log("Server pinged successfully!");
+        })
+        .catch(error => {
+            console.log("Server ping failed:", error);
+        });
 };
 
 const cronPingServer = new CronJob("*/5 * * * *", pingServer);
