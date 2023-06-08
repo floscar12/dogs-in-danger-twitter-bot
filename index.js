@@ -181,8 +181,8 @@ cronTweetLatestMemorial.start();
 // Since I am using Render's free server hosting tier, server sleeps after 15 minutes, causing some of the tweets to not run when needed
 // Console logging to the server every 14 minutes to keep server alive
 const pingServer = () => {
-  console.log("printed every 14 mimutes")
+  console.log("printed every 5 mimutes")
 };
 
-const cronPingServer = new CronJob("*/14 * * * *", pingServer);
+const cronPingServer = new CronJob("*/5 * * * *", pingServer);
 cronPingServer.start();
