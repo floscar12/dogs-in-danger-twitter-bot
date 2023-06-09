@@ -196,5 +196,5 @@ const pingServer = () => {
         });
 };
 
-const cronPingServer = new CronJob("*/13 * * * *", pingServer);
+const cronPingServer = new CronJob("*/8 * * * *", pingServer);
 cronPingServer.start();
